@@ -1,5 +1,5 @@
 # Contact-Management-System
-A mini project on C to create and manage contacts.
+A mini project on C to create and manage contacts..
 
 This project will contains 
 
@@ -8,3 +8,5 @@ This project will contains
     2) Deletion
     
     3) Fetching details
+    
+    4) Displaying Contact Book
