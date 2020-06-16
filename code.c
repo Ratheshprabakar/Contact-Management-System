@@ -135,6 +135,7 @@ void deletion()
 		{
 			strcpy(s[i].name,empty);
 			strcpy(s[i].mobileno,empty);
+			strcpy(s[i].email,empty);
 			printf("\nContact Successfully Deleted!\n");
 			break;	
 		}
