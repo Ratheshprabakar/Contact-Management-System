@@ -9,8 +9,10 @@ struct contact
 struct contact s[100];
 void addition();
 void validate();
+void deletion();
 int choice,i,count=0,j=0;
 char temp_name[100],temp_mobile[100],temp_email[100];
+char empty[100]="";
 int main()
 {
 	while(1)
@@ -24,12 +26,12 @@ int main()
 				addition();
 				break;	
 			}	
-			/*case 2: 
+			case 2: 
 			{
 				deletion();
 				break;	
 			}
-			case 3:
+			/*case 3:
 			{
 				search();
 				break;	
@@ -51,21 +53,6 @@ int main()
 			}
 		}	
 	}
-}
-void addition()
-{
-	printf("Enter the Name\t");
-	scanf("%s",temp_name);
-	printf("Enter the Mobile Number\t");
-	scanf("%s",&temp_mobile);
-	printf("Enter the email\t");
-	scanf("%s",temp_email);
-	validate();
-	strcpy(s[j].name,temp_name);
-	strcpy(s[j].mobileno,temp_mobile);
-	strcpy(s[j].email,temp_email);
-	j++;
-	printf("\n\nContact saved successfully\n");
 }
 void validate()
 {
@@ -121,5 +108,39 @@ void validate()
 			printf("Phone Number already existed in contact book\n");
 			exit(1);	
 		}	
+	}
+}
+void addition()
+{
+	printf("Enter the Name\t");
+	scanf("%s",temp_name);
+	printf("Enter the Mobile Number\t");
+	scanf("%s",&temp_mobile);
+	printf("Enter the email\t");
+	scanf("%s",temp_email);
+	validate();
+	strcpy(s[j].name,temp_name);
+	strcpy(s[j].mobileno,temp_mobile);
+	strcpy(s[j].email,temp_email);
+	j++;
+	printf("\n\nContact saved successfully\n");
+}
+void deletion()
+{
+	printf("Enter the Name\t");
+	scanf("%s",temp_name);
+	for(i=0;i<100;i++)
+	{
+		if(!strcmp(s[i].name,temp_name))
+		{
+			strcpy(s[i].name,empty);
+			strcpy(s[i].mobileno,empty);
+			printf("\nContact Successfully Deleted!\n");
+			break;	
+		}
+	}
+	if(i==100)
+	{
+		printf("\nContact Not found!\n");
 	}
 }
