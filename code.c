@@ -11,7 +11,9 @@ void addition();
 void validate();
 void deletion();
 void search();
-int choice,i,count=0,j=0;
+void display();
+void sort();
+int choice,i,count=0,j=0,k=0,flag=1,z,c=0;
 char temp_name[100],temp_mobile[100],temp_email[100];
 char empty[100]="";
 int main()
@@ -36,12 +38,12 @@ int main()
 			{
 				search();
 				break;	
-			}/*
+			}
 			case 4:
 			{
 				display();
 				break;			
-			}*/
+			}
 			case 5:
 			{
 				exit(1);
@@ -124,6 +126,7 @@ void addition()
 	strcpy(s[j].mobileno,temp_mobile);
 	strcpy(s[j].email,temp_email);
 	j++;
+	c++;
 	printf("\n\nContact saved successfully\n");
 }
 void deletion()
@@ -138,6 +141,7 @@ void deletion()
 			strcpy(s[i].mobileno,empty);
 			strcpy(s[i].email,empty);
 			printf("\nContact Successfully Deleted!\n");
+			c--;
 			break;	
 		}
 	}
@@ -161,5 +165,56 @@ void search()
 	if(i==j)
 	{
 		printf("\n Contact Not Found\n");	
+	}
+}
+void sort()
+{
+	char temp[100];
+
+	for(z=j-1;z>=0 && flag;z--)
+	{
+		printf("Outer Loop");
+		flag=0;
+		for(k=0;k<=z-1;k++)
+		{
+			printf("Inner Loop");
+			if(s[k].name>s[k+1].name)
+			{
+				//Sorting Name
+				strcpy(temp,s[k].name);
+				strcpy(s[k].name,s[k+1].name);
+				strcpy(s[k+1].name,temp);
+				//Sorting Mobile No
+				strcpy(temp,s[k].mobileno);
+				strcpy(s[k].mobileno,s[k+1].mobileno);
+				strcpy(s[k+1].mobileno,temp);
+				//Sorting Email
+				strcpy(temp,s[k].email);
+				strcpy(s[k].email,s[k+1].email);
+				strcpy(s[k+1].email,temp);
+				flag=1;
+			}
+		}	
+	}
+}
+void display()
+{
+	if(c==0)
+	{
+		printf("\n\nNo Contact to displayed!!\n\n");
+	}
+	else
+	{
+		//sort();
+		printf("\n\n-----------Your Contact Book is-------------\n\n");	
+		for(i=0;i<j;i++)
+		{
+			if(strcmp(s[i].name,empty))
+			{
+				printf("Name : %s\nMobile No.: %s\nE-Mail : %s\n",s[i].name,s[i].mobileno,s[i].email);
+				printf("\n--------------\n");
+			}
+		}
+		printf("\n\n-------THE END--------\n\n");
 	}
 }
