@@ -10,6 +10,7 @@ struct contact s[100];
 void addition();
 void validate();
 void deletion();
+void search();
 int choice,i,count=0,j=0;
 char temp_name[100],temp_mobile[100],temp_email[100];
 char empty[100]="";
@@ -31,11 +32,11 @@ int main()
 				deletion();
 				break;	
 			}
-			/*case 3:
+			case 3:
 			{
 				search();
 				break;	
-			}
+			}/*
 			case 4:
 			{
 				display();
@@ -56,7 +57,7 @@ int main()
 }
 void validate()
 {
-	for(i=0;i<100;i++)
+	for(i=0;i<j;i++)
 	{
 		if(!strcmp(s[i].name,temp_name))
 		{
@@ -64,7 +65,7 @@ void validate()
 			exit(1);	
 		}
 	}
-	if(i==100)
+	if(i==j)
 	{
 		count=0;
 		for(i=0;temp_email[i]!='\0';i++)
@@ -101,7 +102,7 @@ void validate()
 			exit(1);	
 		}	
 	}
-	for(i=0;i<100;i++)
+	for(i=0;i<j;i++)
 	{
 		if(!strcmp(temp_mobile,s[i].mobileno))
 		{
@@ -129,7 +130,7 @@ void deletion()
 {
 	printf("Enter the Name\t");
 	scanf("%s",temp_name);
-	for(i=0;i<100;i++)
+	for(i=0;i<j;i++)
 	{
 		if(!strcmp(s[i].name,temp_name))
 		{
@@ -140,8 +141,25 @@ void deletion()
 			break;	
 		}
 	}
-	if(i==100)
+	if(i==j)
 	{
 		printf("\nContact Not found!\n");
+	}
+}
+void search()
+{
+	printf("Enter the Name\t");
+	scanf("%s",temp_name);
+	for(i=0;i<j;i++)
+	{
+		if(!strcmp(s[i].name,temp_name))
+		{
+			printf("Name : %s\nMobile No.: %s\nE-Mail : %s\n",s[i].name,s[i].mobileno,s[i].email);
+			break;	
+		}	
+	}
+	if(i==j)
+	{
+		printf("\n Contact Not Found\n");	
 	}
 }
