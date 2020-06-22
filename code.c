@@ -6,14 +6,14 @@ struct contact
 	char mobileno[100];
 	char email[200];
 };
-struct contact s[100];
+struct contact s[100],temp;
 void addition();
 void validate();
 void deletion();
 void search();
 void display();
 void sort();
-int choice,i,count=0,j=0,k=0,flag=1,z,c=0;
+int choice,i,count=0,j=0,k=0,m,n,c=0;
 char temp_name[100],temp_mobile[100],temp_email[100];
 char empty[100]="";
 int main()
@@ -169,30 +169,15 @@ void search()
 }
 void sort()
 {
-	char temp[100];
-
-	for(z=j-1;z>=0 && flag;z--)
+	for(m=1;m<j;m++)
 	{
-		printf("Outer Loop");
-		flag=0;
-		for(k=0;k<=z-1;k++)
+		for(n=0;n<j-m;n++)
 		{
-			printf("Inner Loop");
-			if(s[k].name>s[k+1].name)
+			if(strcmp(s[n].name,s[n+1].name)>0)
 			{
-				//Sorting Name
-				strcpy(temp,s[k].name);
-				strcpy(s[k].name,s[k+1].name);
-				strcpy(s[k+1].name,temp);
-				//Sorting Mobile No
-				strcpy(temp,s[k].mobileno);
-				strcpy(s[k].mobileno,s[k+1].mobileno);
-				strcpy(s[k+1].mobileno,temp);
-				//Sorting Email
-				strcpy(temp,s[k].email);
-				strcpy(s[k].email,s[k+1].email);
-				strcpy(s[k+1].email,temp);
-				flag=1;
+				temp=s[n];
+				s[n]=s[n+1];
+				s[n+1]=temp;
 			}
 		}	
 	}
@@ -205,7 +190,7 @@ void display()
 	}
 	else
 	{
-		//sort();
+		sort();
 		printf("\n\n-----------Your Contact Book is-------------\n\n");	
 		for(i=0;i<j;i++)
 		{
