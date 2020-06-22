@@ -7,6 +7,6 @@ This project will contains
     
     2) Deletion
     
-    3) Fetching details
+    3) Contact Search
     
     4) Displaying Contact Book
