@@ -1,7 +1,7 @@
 # Contact-Management-System
-A mini project on C to create and manage contacts..
+A mini project on C to create and manage contacts
 
-This project will contains 
+Functions: 
 
     1) Addition 
     
@@ -10,3 +10,11 @@ This project will contains
     3) Contact Search
     
     4) Displaying Contact Book
+    
+Addition :
+
+* Get the input for Name, Mobile Number, Email.
+* Validate 
+  * Check whether the Name should contains alphabets only.
+  * Check whether the Mobile number should contains numbers and exactly 10 digits.
+  * Email must contains @, and should have the minimum length of 5.
